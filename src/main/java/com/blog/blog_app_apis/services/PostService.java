@@ -1,6 +1,5 @@
 package com.blog.blog_app_apis.services;
 
-import com.blog.blog_app_apis.entities.Post;
 import com.blog.blog_app_apis.payload.PostDto;
 import com.blog.blog_app_apis.payload.PostResponse;
 
@@ -24,6 +23,6 @@ public interface PostService {
     List<PostDto> getPostsByUser(Integer userId);
 
     //search posts
-    List<Post> searchPosts(String keyword);
+    List<PostDto> searchPosts(String keyword);
 
 }
