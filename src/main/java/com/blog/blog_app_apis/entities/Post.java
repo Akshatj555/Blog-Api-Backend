@@ -1,11 +1,17 @@
 package com.blog.blog_app_apis.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "posts")
+@Getter
+@Setter
 public class Post {
 
     @Id
@@ -29,72 +35,6 @@ public class Post {
     @ManyToOne
     private User user;
 
-    public Integer getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Integer postId) {
-        this.postId = postId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getImageName() {
-        return imageName;
-    }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
-
-    public Date getAddedDate() {
-        return addedDate;
-    }
-
-    public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-//    @Override
-//    public String toString() {
-//        return "Post{" +
-//                "postId=" + postId +
-//                ", title='" + title + '\'' +
-//                ", content='" + content + '\'' +
-//                ", imageName='" + imageName + '\'' +
-//                ", addedDate=" + addedDate +
-//                ", category=" + category +
-//                ", user=" + user +
-//                '}';
-//    }
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private Set<Comment> comments = new HashSet<>();
 }

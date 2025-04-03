@@ -1,10 +1,17 @@
 package com.blog.blog_app_apis.payload;
 
 import com.blog.blog_app_apis.entities.Category;
+import com.blog.blog_app_apis.entities.Comment;
 import com.blog.blog_app_apis.entities.User;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+@Getter
+@Setter
 public class PostDto {
 
     private Integer postId;
@@ -17,33 +24,11 @@ public class PostDto {
 
     private Date addedDate;
 
-    private Category category;
+    private CategoryDto category;
 
-    private User user;
+    private UserDto user;
 
-    public Integer getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Integer postId) {
-        this.postId = postId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
+    private Set<CommentDto> comments = new HashSet<>();
 
     public String getImageName() {
         return imageName;
@@ -51,41 +36,5 @@ public class PostDto {
 
     public void setImageName(String imageName) {
         this.imageName = imageName;
-    }
-
-    public Date getAddedDate() {
-        return addedDate;
-    }
-
-    public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "PostDto{" +
-                "title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", imageName='" + imageName + '\'' +
-                ", addedDate=" + addedDate +
-                ", category=" + category +
-                ", user=" + user +
-                '}';
     }
 }
