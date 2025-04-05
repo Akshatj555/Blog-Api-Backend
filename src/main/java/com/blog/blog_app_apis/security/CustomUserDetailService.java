@@ -4,7 +4,6 @@ import com.blog.blog_app_apis.entities.User;
 import com.blog.blog_app_apis.exceptions.ResourceNotFoundException;
 import com.blog.blog_app_apis.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
